@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/front.css">
+    <!--Boxicons link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!--Header start-->
+    <div class="nav-container">
+
+        <div class="nav-logo">
+            <h1>Career.</h1>
+        </div>
+
+        <div class="nav-links-container">
+            <ul class="nav-links">
+                <li class="nav-link-item "><a href="front.html">Home</a></li>
+                <li class="nav-link-item "><a href="#About">About</a></li>
+                <li class="nav-link-item "><a href="serive.html">Services <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item"><a href="#">Stories</a></li>
+                        <li class="dropdown-item"><a href="#">Mentor</a></li>
+                        <li class="dropdown-item"><a href="#">Courses</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-item "><a href="register.html">Register</a></li>
+                <li class="nav-link-item "><a href="#QuickLinks">QuickLinks</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+    <!--Header end-->
+
+    <!--Slider start-->
+    <section class="home">
+        <div class="slider-container">
+            <div class="slider">
+                <!--First slide-->
+                <div class="slide active">
+                    <img src="images/pic1.jpg" alt="">
+                    <div class="content">
+                        <h2>Find your perfect career</h2>
+                        <p>Take our quiz to explore career options that suits you best.</p>
+                        <a th:href="@{register.html}" class="btn">Get started</a>
+                    </div>
+                </div>
+
+                <!--second slide-->
+                <div class="slide active">
+                    <img src="images/pic2.jpg" alt="">
+                    <div class="content">
+                        <h2>Explore different fields</h2>
+                        <p>Learn about various career paths and their requirements.</p>
+                        <a th:href="@{register.html}" class="btn">Learn more</a>
+                    </div>
+                </div>
+
+                <!--third slide-->
+                <div class="slide active">
+                    <img src="images/pic3.jpg" alt="">
+                    <div class="content">
+                        <h2>Take the First Step</h2>
+                        <p>Start your journey towards a fulfilling career today.</p>
+                        <a th:href="@{register.html}" class="btn">Start now</a>
+                    </div>
+                </div>
+
+            </div>
+            <!--buttons-->
+            <div class="buttons">
+                <button class="prev"><</button>
+                <button class="next">></button>
+            </div>
+            
+        </div>
+    </section>
+    <!--Slider section ends-->
+
+
+
+    <!--About us section starts-->
+    <section  id="About">
+
+        <div class="heading">
+            <h2>About Us</h2>
+        </div>
+
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Welcome To Our Website</h2>
+                <p>
+                    Welcome to our Career Counseling System, a platform designed to guide individuals in making informed career choices. 
+                    Our system helps users explore different career paths based on their skills, interests, and aspirations.
+                    We believe that career decisions should be backed by insightful analysis and personalized recommendations. 
+                    Our platform provides a user-friendly interface, interactive quizzes, and tailored career suggestions to assist students and professionals in finding their ideal career path.
+                    Built with React for a seamless experience and SQL for robust data management, 
+                    our system ensures accuracy and efficiency in career guidance. Whether you are a 
+                    student seeking direction or a professional looking for a career shift, our platform is here to help!
+                    Start your career journey with us today!
+                    
+                </p>
+                <a th:src="@{contact.html}">Contact</a>
+            </div>
+
+            <div class="about-img">
+                <img src="images/about.png">
+            </div>
+
+        </div>
+
+    </section>
+    <!--About section ends-->
+
+    <!--faq section starts-->
+    <section class="faq" id="faq">
+        
+        
+        <div class="faq-container">
+
+            <div class="faq-heading">
+                <h2>Frequently Asked Questions?</h2>
+            </div>
+
+            <div class="accordian">
+                <div class="question">
+                    <h4>What is the purpose of the Career Counseling System?</h4>
+                    <i class='icon active bx bxs-down-arrow'></i>
+                </div>
+                <div class="answer active ">
+                    The system helps users identify suitable career paths based on their interests and skills.
+                </div>
+            </div>
+
+            <div class="accordian">
+                <div class="question">
+                    <h4>How does the system help users choose a career path?</h4>
+                    <i class='icon bx bxs-down-arrow'></i>
+                </div>
+                <div class="answer">
+                    It analyzes quiz responses to recommend careers aligning with user skills, interests, and strengths.
+                </div>
+            </div>
+
+            <div class="accordian">
+                <div class="question">
+                    <h4>How does the quiz feature work in career counseling?</h4>
+                    <i class='icon bx bxs-down-arrow'></i>
+                </div>
+                <div class="answer">
+                    Users answer questions about their interests, and the system suggests careers accordingly.
+                </div>
+            </div>
+
+            <div class="accordian">
+                <div class="question">
+                    <h4>Does the system require user registration to access features?</h4>
+                    <i class='icon bx bxs-down-arrow'></i>
+                </div>
+                <div class="answer">
+                    Yes, users need to register to save quiz results and access personalized recommendations.
+                </div>
+            </div>
+
+            <div class="accordian">
+                <div class="question">
+                    <h4>What makes this system different from other career counseling platforms?</h4>
+                    <i class='icon bx bxs-down-arrow'></i>
+                </div>
+                <div class="answer">
+                    It offers a user-friendly interface, quiz-based recommendations, and a history-tracking feature for career guidance.
+                </div>
+            </div>
+            
+            
+
+        </div>
+    </section>
+    <!--faq section ends-->
+
+
+    <!--footer section start-->
+    <section class="footer" id="QuickLinks">
+        <div class="footer-container container">
+            <h2>Career.</h2>
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <a href="#">Resources</a>
+                <a href="#">Courses</a>
+                <a href="#">Stories</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Others</h3>
+                <a th:href="@{front.html}">Home</a>
+                <a href="#faq">FAQ's</a>
+                <a href="#">Feedback</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <a href="#">+49 082 564 8889</a>
+                <a href="#">yourmail@gmail.com</a>
+                <div class="social">
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+
+        </div>
+      </section>
+    <!--footer section end-->
+
+    <!--copyright-->
+<div class="copyright">
+    <h3>&#169; All Rights Reserved</h3>
+</div>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

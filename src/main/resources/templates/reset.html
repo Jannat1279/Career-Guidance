@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="css/front.css">  </head>
+        <!--Boxicons link-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<body>
+
+    <!--Header start-->
+    <div class="nav-container">
+
+        <div class="nav-logo">
+            <h1>Career.</h1>
+        </div>
+
+        <div class="nav-links-container">
+            <ul class="nav-links">
+                <li class="nav-link-item "><a th:href="@{front.html}">Home</a></li>
+                <li class="nav-link-item "><a th:href="@{front.html}">About</a></li>
+                <li class="nav-link-item "><a th:href="@{serive.html}">Services <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown">
+                        <li class="dropdown-item"><a href="#">Stories</a></li>
+                        <li class="dropdown-item"><a href="#">Mentor</a></li>
+                        <li class="dropdown-item"><a href="#">Courses</a></li>
+                    </ul>
+                </li>
+                <li class="nav-link-item "><a th:href="@{register.html}">Register</a></li>
+                <li class="nav-link-item "><a href="#QuickLinks">QuickLinks</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!--Header end-->
+
+<div class="reset">
+    <div class="reset-container">
+        <h2>Reset Password</h2>
+        <form>
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <button type="submit">Send Reset Link</button>
+            <div class="login-link">
+                Back to <a href="login.html">Login</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--footer section start-->
+<section class="footer" id="QuickLinks">
+    <div class="footer-container container">
+        <h2>Career.</h2>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="#">Resources</a>
+            <a href="#">Courses</a>
+            <a href="#">Stories</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Others</h3>
+            <a th:href="@{front.html}">Home</a>
+            <a href="#faq">FAQ's</a>
+            <a href="#">Feedback</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <a href="#">+49 082 564 8889</a>
+            <a href="#">yourmail@gmail.com</a>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+
+    </div>
+  </section>
+<!--footer section end-->
+
+<!--copyright-->
+<div class="copyright">
+<h3>&#169; All Rights Reserved</h3>
+</div>
+
+</body>
+</html>
