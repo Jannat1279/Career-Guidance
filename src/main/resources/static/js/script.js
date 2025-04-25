@@ -77,6 +77,6 @@ function blurFunc(){
 }
 
 inputs.forEach(input =>{
-    input.addEventListener("focus", focusFunc());
-    input.addEventListener("blur", blurFunc());
+    input.addEventListener("focus", focusFunc);
+    input.addEventListener("blur", blurFunc);
 });
