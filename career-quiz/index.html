@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Career Recommendation Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="background-overlay"></div>
+
+<div class="dark-mode-toggle">
+  <label class="switch">
+    <input type="checkbox" id="darkToggle">
+    <span class="slider round"></span>
+  </label>
+</div>
+
+<div class="container" id="start-container">
+  <h1>🚀 Discover Your Future Career</h1>
+  <p class="subtitle">Choose your passions and we’ll guide your path!</p>
+  <input type="text" id="username" placeholder="Enter Your Name" required>
+  <input type="email" id="email" placeholder="Enter your email" required>
+  <button id="start-btn" class="btn">Start Quiz</button>
+</div>
+
+<div class="container hidden" id="quiz-container">
+  <h2 id="welcome-text"></h2>
+  <div id="progress-bar"><div id="progress"></div></div>
+  <form id="quiz-form">
+    <div id="questions-container" class="cards-grid"></div>
+    <button type="submit" class="btn submit-btn">Submit Answers</button>
+  </form>
+</div>
+
+<div class="container hidden center" id="finish-container">
+  <h1>🎉 You're All Set!</h1>
+  <p class="subtitle">Your recommended career has been saved. 🎓</p>
+  <button id="dashboard-btn" class="btn">Go to Dashboard</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
