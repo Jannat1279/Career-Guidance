@@ -19,19 +19,10 @@ Server	Localhost
 
 Screenshots
 Below are some visual highlights of the application:
-![image](https://github.com/user-attachments/assets/ff5f1969-4e80-4b98-88ba-7f655c1a6d0d)
+![Screenshot 2025-06-25 150504](https://github.com/user-attachments/assets/ed1b3643-093d-4dfe-a13b-274e2c42729b)
 
-![image](https://github.com/user-attachments/assets/ecae15fd-a19f-4860-8017-18e742f7e51e)
+![Screenshot 2025-06-25 150532](https://github.com/user-attachments/assets/63dc33ba-e188-402a-b082-e5bfffb0febd)
 
-![image](https://github.com/user-attachments/assets/4df93dbc-822f-4c63-aea8-b9fb72eed849)
-
-![image](https://github.com/user-attachments/assets/6e0da29c-59b3-4df6-a61e-8418415cd58c)
-
-![image](https://github.com/user-attachments/assets/917d60e1-971c-4431-bd29-921d87edb4eb)
-
-![image](https://github.com/user-attachments/assets/20f956cd-b25e-46c9-b71a-ff9df94f8c6c)
-
-![image](https://github.com/user-attachments/assets/43af29ce-9ea7-40ef-9ba5-3c05ddb7db59)
 
 ##Future Scope :
 
