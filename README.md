@@ -23,20 +23,6 @@ Below are some visual highlights of the application:
 
 ![image](https://github.com/user-attachments/assets/917d60e1-971c-4431-bd29-921d87edb4eb)
 
-![image](https://github.com/user-attachments/assets/be39eb07-51b0-4e0f-bcd7-8ffae14dd424)
-
-![image](https://github.com/user-attachments/assets/f9448005-bb80-42de-965d-99e28f71e357)
-
-![image](https://github.com/user-attachments/assets/eb0a7d76-0efd-4a04-b7f8-24f8b4f1a9ca)
-
-![image](https://github.com/user-attachments/assets/f62d33a2-1b4e-402c-ab68-9c88746ae7e0)
-
-![image](https://github.com/user-attachments/assets/56729634-097a-42ab-9bf2-df0186dde1ab)
-
-![image](https://github.com/user-attachments/assets/7e845fff-c9a6-4264-8d6a-eed59dc7c10e)
-
-![image](https://github.com/user-attachments/assets/5d941469-a834-4bbf-80f0-e3abab0c47cb)
-
 ![image](https://github.com/user-attachments/assets/43af29ce-9ea7-40ef-9ba5-3c05ddb7db59)
 
 ##Future Scope :
