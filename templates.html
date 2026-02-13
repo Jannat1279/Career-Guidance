@@ -1,138 +1,361 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AI Chatbot</title>
+    <title>Career Counselor Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #eef2ff;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Floating Toggle Button */
+        .chat-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
         }
 
         .chat-container {
-            width: 520px;
-            margin: 40px auto;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 95%;
+            max-width: 420px;
+            height: 85vh;
             background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
-        h2 {
+        .hidden {
+            display: none;
+        }
+
+        .chat-header {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
             text-align: center;
         }
 
         .chat-box {
-            height: 420px;
+            flex: 1;
+            padding: 15px;
             overflow-y: auto;
-            padding: 10px;
-            border-bottom: 2px solid #eee;
+            background: #f4f6fb;
+            display: flex;
+            flex-direction: column;
         }
 
-        .user-msg, .bot-msg {
-            padding: 12px 15px;
-            margin: 10px 0;
-            border-radius: 12px;
-            max-width: 80%;
-            line-height: 1.5;
+        .message-wrapper {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
         }
 
-        .user-msg {
-            background: #007bff;
+        .message-wrapper.user {
+            justify-content: flex-end;
+        }
+
+        .message {
+            max-width: 75%;
+            padding: 12px 14px;
+            border-radius: 15px;
+            font-size: 14px;
+            line-height: 1.4;
+            animation: fadeIn 0.3s ease-in-out;
+            white-space: pre-line;
+        }
+
+        .user .message {
+            background: #4CAF50;
             color: white;
-            margin-left: auto;
-            border-bottom-right-radius: 0;
+            border-bottom-right-radius: 5px;
         }
 
-        .bot-msg {
-            background: #f0f2ff;
+        .bot .message {
+            background: #e5e9f2;
             color: #333;
-            margin-right: auto;
-            border-bottom-left-radius: 0;
+            border-bottom-left-radius: 5px;
         }
 
-        input {
-            width: 78%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #aaa;
-            font-size: 16px;
+        .avatar {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
         }
 
-        button {
-            width: 20%;
-            padding: 12px;
-            margin-left: 5px;
-            background: #007bff;
-            color: white;
+        .timestamp {
+            font-size: 11px;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        .input-area {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: white;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .input-area button {
+            margin-left: 8px;
+            padding: 10px 15px;
             border: none;
+            border-radius: 20px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .option-buttons {
+            margin-top: 10px;
+        }
+
+        .option-buttons button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+            padding: 10px;
             border-radius: 10px;
+            border: none;
+            background: #4CAF50;
+            color: white;
             cursor: pointer;
         }
 
-        button:hover {
-            background: #0056cc;
+        .typing {
+            font-style: italic;
+            font-size: 13px;
+            color: gray;
+            margin-bottom: 5px;
         }
 
-        .bot-msg h1, .bot-msg h2, .bot-msg h3 {
-            margin: 10px 0 5px;
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 500;
         }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
     </style>
 </head>
 
 <body>
 
-<div class="chat-container">
-    <h2>💬 AI Career Chatbot</h2>
+<button class="chat-toggle" onclick="toggleChat()">💬</button>
+
+<div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+        🎓 Career Counselor
+    </div>
 
     <div class="chat-box" id="chatBox"></div>
 
-    <div style="display:flex; margin-top: 10px;">
-        <input id="userInput" placeholder="Ask your question..." />
+    <div class="input-area">
+        <input type="text" id="userInput" placeholder="Ask about your career...">
         <button onclick="sendMessage()">Send</button>
     </div>
 </div>
 
 <script>
-function sendMessage() {
-    let msg = document.getElementById("userInput").value;
-    if (!msg) return;
 
-    addMessage(msg, "user");
-    document.getElementById("userInput").value = "";
+const chatBox = document.getElementById("chatBox");
+const chatContainer = document.getElementById("chatContainer");
 
-    fetch("/ask", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ message: msg })
-    })
-    .then(res => res.json())
-    .then(data => addMessage(data.reply, "bot"));
+function toggleChat() {
+    chatContainer.classList.toggle("hidden");
+}
+
+function formatMessage(text) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    let formatted = text.replace(urlRegex, url =>
+        `<a href="${url}" target="_blank">${url}</a>`
+    );
+    return formatted;
 }
 
 function addMessage(text, sender) {
-    let chatBox = document.getElementById("chatBox");
-    let msgDiv = document.createElement("div");
 
-    msgDiv.className = sender === "user" ? "user-msg" : "bot-msg";
-    msgDiv.innerHTML = formatText(text);
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("message-wrapper", sender);
 
-    chatBox.appendChild(msgDiv);
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message");
+    messageDiv.innerHTML = formatMessage(text);
+
+    const time = document.createElement("div");
+    time.classList.add("timestamp");
+    time.innerText = new Date().toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
+    messageDiv.appendChild(time);
+
+    if (sender === "bot") {
+        const avatar = document.createElement("img");
+        avatar.src = "https://cdn-icons-png.flaticon.com/512/4712/4712109.png";
+        avatar.classList.add("avatar");
+        wrapper.appendChild(avatar);
+        wrapper.appendChild(messageDiv);
+    } else {
+        wrapper.appendChild(messageDiv);
+    }
+
+    chatBox.appendChild(wrapper);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Converts Markdown-like text to readable HTML
-function formatText(text) {
-    text = text.replace(/\n/g, "<br>");
-    text = text.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
-    text = text.replace(/### (.*?)(<br>|$)/g, "<h3>$1</h3>");
-    text = text.replace(/## (.*?)(<br>|$)/g, "<h2>$1</h2>");
-    text = text.replace(/# (.*?)(<br>|$)/g, "<h1>$1</h1>");
-    text = text.replace(/^- /gm, "• ");
-    text = text.replace(/^\* /gm, "• ");
-    return text;
+function showTyping() {
+    const typingDiv = document.createElement("div");
+    typingDiv.classList.add("typing");
+    typingDiv.id = "typingIndicator";
+    typingDiv.innerText = "Counselor is typing...";
+    chatBox.appendChild(typingDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
+
+function removeTyping() {
+    const typing = document.getElementById("typingIndicator");
+    if (typing) typing.remove();
+}
+
+function sendMessage(customMessage = null) {
+
+    const input = document.getElementById("userInput");
+    const message = customMessage || input.value;
+
+    if (!message.trim()) return;
+
+    addMessage(message, "user");
+    input.value = "";
+
+    const msgLower = message.toLowerCase();
+
+    const closingWords = [
+        "thank you","thanks","thx","bye","goodbye",
+        "ok thanks","that's all","close chat",
+        "i want to close","no that's it"
+    ];
+
+    const isClosing = closingWords.some(word => msgLower.includes(word));
+
+    if (isClosing) {
+        showTyping();
+
+        setTimeout(() => {
+            removeTyping();
+
+            addMessage(
+                "You're very welcome 😊\n\nI'm glad I could help you today.\nIf you ever need career guidance again, I'll be right here.\n\nHave an amazing day ahead! 🚀",
+                "bot"
+            );
+
+            setTimeout(() => {
+                toggleChat();
+            }, 3000);
+
+        }, 1000);
+
+        return;
+    }
+
+    showTyping();
+
+    fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: message })
+    })
+    .then(response => response.json())
+    .then(data => {
+        removeTyping();
+
+        if (data.redirect) {
+            window.location.href = data.redirect;
+            return;
+        }
+
+        addMessage(data.reply, "bot");
+
+        if (data.buttons) {
+            showButtons(data.buttons);
+        }
+    });
+}
+
+function showButtons(buttons) {
+    const buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("option-buttons");
+
+    buttons.forEach(btn => {
+        const b = document.createElement("button");
+        b.innerText = btn.text;
+        b.onclick = () => sendMessage(btn.value);
+        buttonDiv.appendChild(b);
+    });
+
+    chatBox.appendChild(buttonDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Auto open + start
+window.onload = function() {
+    toggleChat();
+    sendMessage("start");
+};
+
+document.getElementById("userInput")
+.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});
+
 </script>
 
 </body>
 </html>
+
+
+</body>
+</html>
+
